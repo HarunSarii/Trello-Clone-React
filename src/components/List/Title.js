@@ -10,6 +10,8 @@ const useStyle = makeStyles((theme) => ({
     },
     editableTitle: {
         flexGrow: 1,
+        fontSize: '1.3rem',
+        fontWeight: 'bold',
     },
     input: {
         margin: theme.spacing(1),
