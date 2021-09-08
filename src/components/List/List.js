@@ -1,7 +1,7 @@
 import React from 'react'
-import { Paper, Typography, CssBaseline } from '@material-ui/core'
+import { Paper, CssBaseline } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { mergeClasses } from '@material-ui/styles';
+import Title from './Title';
 
 
 const useStyle = makeStyles((theme) => ({
@@ -18,9 +18,7 @@ function List() {
         <div>
             <Paper className={classes.root}>
                 <CssBaseline />
-                <Typography>
-                    Travel List
-                </Typography>
+                <Title />
             </Paper>
 
         </div>
