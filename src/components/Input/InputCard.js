@@ -15,9 +15,9 @@ const useStyle = makeStyles((theme) => ({
     },
     btnConfirm: {
         color: 'white',
-        background: 'green',
+        background: '#228B22',
         '&:hover': {
-            background: '#A7E074'
+            background: '#006400'
         }
     },
     confirm: {
@@ -50,3 +50,4 @@ function InputCard({ setOpen }) {
 }
 
 export default InputCard
+

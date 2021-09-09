@@ -15,7 +15,7 @@ const cards = [
 
 const data = {
     lists: {
-        'list1': {
+        'list-1': {
             id: 'list-1',
             title: 'Todo',
             cards,
@@ -24,3 +24,5 @@ const data = {
     listIds: ['list-1'],
 
 }
+
+export default data;

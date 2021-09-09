@@ -22,7 +22,7 @@ const useStyle = makeStyles((theme) => ({
 }))
 
 
-function Title() {
+function Title({ title }) {
     const [open, setOpen] = useState(false);
     console.log('open:', open)
     const classes = useStyle();
@@ -31,7 +31,7 @@ function Title() {
             {open ? (
                 <div >
                     <InputBase
-                        value='Travel '
+                        value={title}
                         inputProps={{
                             className: classes.input
                         }}
@@ -42,7 +42,9 @@ function Title() {
                 </div>
             ) : (
                 <div className={classes.editableTitleContainer} >
-                    <Typography onClick={() => setOpen(!open)} className={classes.editableTitle} >Travel List</Typography>
+                    <Typography onClick={() => setOpen(!open)} className={classes.editableTitle} >
+                        {title}
+                    </Typography>
                     <MoreHorizIcon />
                 </div>
             )}
