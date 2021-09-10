@@ -6,12 +6,15 @@ import List from './components/List/List'
 import ContextApi from './utils/ContextApi';
 import InputContainer from './components/Input/InputContainer';
 import { makeStyles } from '@material-ui/core/styles';
+import { DragDropContext } from 'react-beautiful-dnd';
+
 
 const useStyle = makeStyles((theme) => ({
   root: {
     display: 'flex',
     minHeight: '100vh',
-    background: '#AA4A44'
+    background: '#AA4A44',
+    overflowY: 'auto',
   }
 }))
 function App() {
@@ -72,14 +75,16 @@ function App() {
   }
   return (
     <ContextApi.Provider value={{ addMoreCard, addMoreList, updateListTitle }}  >
-      <div className={classes.root} >
-        {data.listIds.map((listId) => {
-          const list = data.lists[listId];
-          return <List list={list} key={listId} />
+      <DragDropContext >
+        <div className={classes.root} >
+          {data.listIds.map((listId) => {
+            const list = data.lists[listId];
+            return <List list={list} key={listId} />
 
-        })}
-        <InputContainer type='list' />
-      </div>
+          })}
+          <InputContainer type='list' />
+        </div>
+      </DragDropContext>
     </ContextApi.Provider>
   );
 }
