@@ -7,6 +7,7 @@ import ContextApi from '../../utils/ContextApi';
 
 const useStyle = makeStyles((theme) => ({
     card: {
+        width: '280px',
         paddingBottom: theme.spacing(4),
         margin: theme.spacing(0, 1, 1, 1),
 
@@ -26,18 +27,23 @@ const useStyle = makeStyles((theme) => ({
 
     }
 }))
-function InputCard({ setOpen, listId }) {
+function InputCard({ setOpen, listId, type }) {
     const classes = useStyle();
-    const { addMoreCard } = useContext(ContextApi)
-    const [cardTitle, setCardTitle] = useState('');
-
+    const { addMoreCard, addMoreList } = useContext(ContextApi)
+    const [title, setTitle] = useState('')
     const handleOnChange = (e) => {
-        setCardTitle(e.target.value);
+        setTitle(e.target.value);
     }
     const handleBtnConfirm = () => {
-        addMoreCard(cardTitle, listId);
-        setCardTitle('');
-        setOpen(false);
+        if (type === 'card') {
+            addMoreCard(title, listId);
+            setTitle('');
+            setOpen(false);
+        } else {
+            addMoreList(title);
+            setTitle('');
+            setOpen(false);
+        }
     }
 
     const handleBlur = () => {
@@ -56,13 +62,13 @@ function InputCard({ setOpen, listId }) {
                         inputProps={{
                             classes: classes.input
                         }}
-                        value={cardTitle}
-                        placeholder='Enter a title for this card...'
+                        value={title}
+                        placeholder={type === 'card' ? 'Enter a title for this card...' : 'Enter List Title'}
                     />
                 </Paper>
             </div>
             <div className={classes.confirm} >
-                <Button className={classes.btnConfirm} onClick={handleBtnConfirm}  >Add Card</Button>
+                <Button className={classes.btnConfirm} onClick={handleBtnConfirm}  >{type === 'card' ? 'Add Card' : 'Add List'}</Button>
                 <IconButton onClick={() => setOpen(false)}>
                     <ClearIcon />
                 </IconButton>

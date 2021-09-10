@@ -10,12 +10,15 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyle = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    minHeight: '100vh',
+    background: '#AA4A44'
   }
 }))
 function App() {
   const [data, setData] = useState(store);
   console.log('data:', data)
   const classes = useStyle()
+
   const addMoreCard = (title, listId) => {
     const newCardId = uuid();
     const newCard = {
@@ -36,15 +39,32 @@ function App() {
     }
     setData(newState)
   };
+
+  const addMoreList = (title) => {
+    const newListId = uuid();
+    const newList = {
+      id: newListId,
+      title,
+      cards: [],
+    };
+    const newState = {
+      listIds: [...data.listIds, newListId],
+      lists: {
+        ...data.lists,
+        [newListId]: newList,
+      }
+    }
+    setData(newState);
+  }
   return (
-    <ContextApi.Provider value={{ addMoreCard }}  >
+    <ContextApi.Provider value={{ addMoreCard, addMoreList }}  >
       <div className={classes.root} >
         {data.listIds.map((listId) => {
           const list = data.lists[listId];
           return <List list={list} key={listId} />
 
         })}
-        <InputContainer />
+        <InputContainer type='list' />
       </div>
     </ContextApi.Provider>
   );
