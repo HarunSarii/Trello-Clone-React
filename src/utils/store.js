@@ -1,15 +1,15 @@
 const cards = [
     {
         id: 'card-1',
-        content: 'Make an early reservation',
+        title: 'Make an early reservation',
     },
     {
         id: 'card-2',
-        content: 'Prepare car for road trip',
+        title: 'Prepare car for road trip',
     },
     {
         id: 'card-3',
-        content: 'Search for beautiful places to see',
+        title: 'Search for beautiful places to see',
     },
 ];
 

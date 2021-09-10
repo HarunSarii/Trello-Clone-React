@@ -16,7 +16,7 @@ function Card({ card }) {
     return (
         <div>
             <Paper className={classes.card} >
-                {card.content}
+                {card.title}
             </Paper>
         </div>
     )

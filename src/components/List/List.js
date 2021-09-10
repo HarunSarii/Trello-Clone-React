@@ -21,11 +21,11 @@ function List({ list }) {
         <div>
             <Paper className={classes.root}>
                 <CssBaseline />
-                <Title title={list.title} />
+                <Title title={list.title} listId={list.id} />
                 {list.cards.map((card) => (
                     <Card key={card.id} card={card} />
                 ))}
-                <InputContainer />
+                <InputContainer listId={list.id} />
 
             </Paper>
 

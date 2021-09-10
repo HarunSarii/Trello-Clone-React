@@ -6,6 +6,7 @@ import InputCard from './InputCard';
 
 const useStyle = makeStyles((theme) => ({
     root: {
+        width: '300px',
         marginTop: theme.spacing(2)
     },
     addCard: {
@@ -18,14 +19,14 @@ const useStyle = makeStyles((theme) => ({
     }
 }))
 
-function InputContainer() {
+function InputContainer({ listId }) {
     const classes = useStyle();
     const [open, setOpen] = useState(false);
 
     return (
         <div className={classes.root}>
             <Collapse in={open}>
-                <InputCard setOpen={setOpen} />
+                <InputCard setOpen={setOpen} listId={listId} />
             </Collapse>
             <Collapse in={!open}>
                 <Paper className={classes.addCard} elevation={0} onClick={() => setOpen(!open)} >
