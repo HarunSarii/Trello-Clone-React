@@ -28,7 +28,7 @@ function List({ list }) {
             <Paper className={classes.root}>
                 <CssBaseline />
                 <Title title={list.title} listId={list.id} />
-                <Droppable droppable={list.id} >
+                <Droppable droppableId={list.id} >
                     {(provided) => (
                         <div ref={provided.innerRef} {...provided.droppableProps} className={classes.cardContainer} >
                             {list.cards.map((card, index) => (
