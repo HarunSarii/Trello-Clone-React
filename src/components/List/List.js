@@ -8,7 +8,7 @@ import InputContainer from '../Input/InputContainer';
 
 const useStyle = makeStyles((theme) => ({
     root: {
-        width: '300px',
+        minWidth: '300px',
         backgroundColor: '#e6dfdf',
         marginLeft: theme.spacing(1)
     }
